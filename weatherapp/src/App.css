@@ -6,7 +6,6 @@
 .Header {
   padding: 10px;
   background-color: rgb(66, 66, 66);
-  overflow: hidden;
   display: flex;
   margin: 0;
   top: 0;
@@ -30,6 +29,7 @@
   border: 1px solid white;
   border-radius: 20px;
   padding: 0 1rem;
+  position: relative;
 }
 
 .search-icon {
@@ -56,6 +56,9 @@
 
 .Body {
   padding: 3rem;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .CurrentWeather {
   display: flex;
@@ -170,4 +173,30 @@
 .wind-dir {
   font-size: 0.8rem;
   margin-left: 0.25rem;
+}
+
+.search-results {
+  border-radius: 0.5rem;
+  background-color: rgb(66,66,66);
+  z-index: 10;
+  top: 140%;
+  width: 100%;
+  max-height: 50vh;
+  overflow-x: hidden;
+  position: absolute;
+}
+
+.results-container {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.result {
+  padding: 1rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: black;
+  }
 }

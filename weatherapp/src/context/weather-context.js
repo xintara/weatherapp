@@ -6,14 +6,14 @@ const WeatherContext = createContext();
 
 function WeatherProvider({children}) {
     const [place, setPlace] = useState(DEFAULT_PLACE);
-    const [loading, setLoading] = useState(true);
     const [currentWeather, setCurrentWeather] = useState({});
     const [hourlyForecast, setHourlyForecast] = useState({});
     const [dailyForecast, setDailyForecast] = useState({});
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function _getWeatherData() {
-            setLoading(true);  
+            setLoading(true);
 
             const weather = await getWeatherData('current', place.place_id, 'auto');
             setCurrentWeather(weather.current);
