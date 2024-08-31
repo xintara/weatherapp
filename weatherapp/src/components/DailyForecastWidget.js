@@ -7,7 +7,7 @@ function DailyForecastWidget({data}) {
         icon, 
         temperature_max, 
         temperature_min, 
-        precipitation,
+        probability,
     } = data;
 
     const now = {
@@ -36,15 +36,16 @@ function DailyForecastWidget({data}) {
             </div>
             <div className='daily-temperature'>
                 <div className='max'>
-                    High: {Math.round(temperature_max)} °F
+                    High: {temperature_max} °F
                 </div>
                 <div className='min'>
-                    Low: {Math.round(temperature_min)} °F
+                    Low: {temperature_min} °F
                 </div>
             </div>
         </div>
         <div className='precipitation'>
-            {Math.round(precipitation.total)} in/h
+            <i className='bi bi-droplet'></i>
+            {probability.precipitation}%
         </div>
     </div>
 }

@@ -20,9 +20,9 @@ function CurrentWeather() {
         {
             id: 0,
             icon: 'droplet',
-            name: 'Precipitation',
-            value: Math.round(precipitation.total),
-            unit: 'in/h',
+            name: 'Precipitation in the last hour',
+            value: precipitation.total,
+            unit: 'inches',
         },
         {
             id: 1,

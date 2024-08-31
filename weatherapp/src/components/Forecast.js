@@ -1,15 +1,16 @@
 import '../App.css';
 import HourlyForecastWidget from './HourlyForecastWidget';
 import DailyForecastWidget from './DailyForecastWidget';
+import ForecastScroll from './ForecastScroll';
 
 function Forecast({ title, type, data }) {
     return (
         <div className='Forecast'>
             <div className='forecast-container'>
                 <h3>{title}</h3>
-                <div className='forecast-widget-container'>
+                <ForecastScroll className='forecast-widget-container'>
                     {data.map((singleData) => (
-                        <div>
+                        <div key={singleData.date || singleData.day}>
                             {type === 'hourly' ? (
                                 <HourlyForecastWidget data={singleData} />
                             ) : (
@@ -17,7 +18,7 @@ function Forecast({ title, type, data }) {
                             )}
                         </div>
                     ))}
-                </div>
+                </ForecastScroll>
             </div>
         </div>
     );

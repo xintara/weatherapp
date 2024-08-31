@@ -1,7 +1,7 @@
 import WeatherIcon from './WeatherIcon';
 
 function HourlyForecastWidget({data}) {
-    const {date, icon, summary, temperature, precipitation, wind} = data;
+    const {date, icon, summary, temperature, probability, wind} = data;
 
     const now = {
         day: new Intl.DateTimeFormat(navigator.language, {
@@ -35,25 +35,28 @@ function HourlyForecastWidget({data}) {
             ? weather_date.day
             : '';
 
-    return <div className='widget'>
-        <div className='day'>{weather_date.day}</div>
-        <div className='time'>{weather_date.time}</div>
-        <div className='icon-temp'>
-            <div className='icon'>
-                <WeatherIcon iconNumber={icon} summary={summary} />
+    return (
+        <div className='widget'>
+            <div className='day'>{weather_date.day}</div>
+            <div className='time'>{weather_date.time}</div>
+            <div className='icon-temp'>
+                <div className='icon'>
+                    <WeatherIcon iconNumber={icon} summary={summary} />
+                </div>
+                <div className='hourly-temperature'>{Math.round(temperature)} °F</div>
             </div>
-            <div className='hourly-temperature'>{Math.round(temperature)} °F</div>
-        </div>
-        <div className='precipitation'>
-            {Math.round(precipitation.total)} in/h
-        </div>
-        <div className='wind'>
-            <div className='speed'>{Math.round(wind.speed)} mph</div>
-            <div className='dir' style={{transform: `rotate(${-45 + wind.angle}deg)`}}>
-                <i className='bi bi-send-fill'></i>
+            <div className='precipitation-probability'>
+                <i className='bi bi-droplet'></i>
+                {probability.precipitation}%
+            </div>
+            <div className='wind'>
+                <div className='speed'>{Math.round(wind.speed)} mph</div>
+                <div className='dir' style={{transform: `rotate(${-45 + wind.angle}deg)`}}>
+                    <i className='bi bi-send-fill'></i>
+                </div>
             </div>
         </div>
-    </div>
+    )
 }
 
 export default HourlyForecastWidget;
