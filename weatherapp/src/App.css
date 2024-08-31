@@ -1,5 +1,6 @@
 :root {
-  background-color: rgb(36, 36, 36)
+  background-color: rgb(36, 36, 36);
+  color: white;
 }
 
 .Header {
@@ -112,4 +113,62 @@
 
 .icon {
   margin-right: 0.5rem;
+}
+
+.Forecast {
+  margin-top: 2rem;
+}
+
+.forecast-widget-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+  margin-top: 0.5rem;
+  padding-top: 1.5rem;
+}
+
+.widget {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 0.75rem;
+  margin-right: 0.75rem;
+  min-width: 115px;
+  border: 1px solid white;
+  border-radius: 1rem;
+}
+
+.day {
+  position: absolute;
+  top: -1.5rem;
+}
+
+.icon-temp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.icon-temp img {
+  width: 40px;
+  margin-right: 0.25rem;
+}
+
+.wind {
+  margin-top: 0.25rem;
+  display: flex;
+}
+
+.speed {
+  margin-right: 0.25rem;
+}
+
+.wind-dir {
+  font-size: 0.8rem;
+  margin-left: 0.25rem;
 }

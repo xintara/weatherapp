@@ -1,4 +1,5 @@
 import { getCurrentWeather } from '../api';
+import WeatherIcon from './WeatherIcon';
 
 function CurrentWeather() {
     const data = getCurrentWeather();
@@ -64,10 +65,7 @@ function CurrentWeather() {
         <div className='CurrentWeather'>
             <div className='temperature'>
                 <div className='weather-icon'>
-                    <img 
-                        src={`${process.env.PUBLIC_URL}/dist/weather_icons/set01/big/${icon_num}.png`} 
-                        alt={summary}
-                    />
+                    <WeatherIcon iconNumber={icon_num} summary={summary} />
                 </div>
                 <div className='value'>
                     <div className='real'>{temperature} °F</div>
