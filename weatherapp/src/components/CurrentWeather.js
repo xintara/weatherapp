@@ -1,4 +1,6 @@
+import WeatherContext from '../context/weather-context';
 import WeatherIcon from './WeatherIcon';
+import { useContext } from 'react';
 
 function CurrentWeather({data}) {
     const {
@@ -14,20 +16,22 @@ function CurrentWeather({data}) {
         wind,
     } = data;
 
+    const { units } = useContext(WeatherContext);
+
     const otherInfoWidgets = [
         {
             id: 0,
             icon: 'droplet',
             name: 'Precipitation in the last hour',
             value: precipitation.total,
-            unit: 'inches',
+            unit: units.precipitation,
         },
         {
             id: 1,
             icon: 'wind',
             name: 'Wind',
             value: Math.round(wind.speed),
-            unit: 'mph',
+            unit: units.wind_speed,
         },
         {
             id: 2,
@@ -55,7 +59,7 @@ function CurrentWeather({data}) {
             icon: 'eye',
             name: 'Visibility',
             value: Math.round(visibility),
-            unit: 'mi',
+            unit: units.visibility,
         },
     ];
 
@@ -66,8 +70,8 @@ function CurrentWeather({data}) {
                     <WeatherIcon iconNumber={icon_num} summary={summary} />
                 </div>
                 <div className='value'>
-                    <div className='real'>{temperature} °F</div>
-                    <div className='feels-like'>feels like {feels_like} °F</div>
+                    <div className='real'>{temperature} {units.temperature}</div>
+                    <div className='feels-like'>feels like {feels_like} {units.temperature}</div>
                 </div>
                 <div className='summary'>{summary}</div>
             </div>

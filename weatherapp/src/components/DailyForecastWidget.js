@@ -1,4 +1,6 @@
 import WeatherIcon from './WeatherIcon';
+import WeatherContext from '../context/weather-context';
+import { useContext } from 'react';
 
 function DailyForecastWidget({data}) {
     const {
@@ -9,6 +11,8 @@ function DailyForecastWidget({data}) {
         temperature_min, 
         probability,
     } = data;
+
+    const { units } = useContext(WeatherContext);
 
     const now = {
         day: new Intl.DateTimeFormat(navigator.language, {
@@ -36,10 +40,10 @@ function DailyForecastWidget({data}) {
             </div>
             <div className='daily-temperature'>
                 <div className='max'>
-                    High: {temperature_max} °F
+                    High: {temperature_max} {units.temperature}
                 </div>
                 <div className='min'>
-                    Low: {temperature_min} °F
+                    Low: {temperature_min} {units.temperature}
                 </div>
             </div>
         </div>
