@@ -200,3 +200,57 @@
     background-color: black;
   }
 }
+
+.Settings {
+  display: flex;
+  flex-direction: row;
+}
+
+.Settings h4 {
+  padding-right: 0.5rem;
+}
+
+.measurements {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.system {
+  padding: 1rem;
+  cursor: pointer;
+  border: solid white;
+  border-width: 1px;
+
+  &.active{
+    background-color: white;
+    color: black;
+  }
+}
+
+.infobox {
+  position: absolute;
+  display: inline-block;
+  z-index: 2;
+  visibility: hidden;
+  right: 0;
+  left: 75%;
+  top: 100%;
+  border: solid white;
+  border-width: 1px;
+  border-radius: 1px;
+  background-color: rgb(36,36,36);
+  color: white;
+  &.open {
+    visibility: visible;
+  }
+}
+
+.description {
+  padding: 1rem;
+}
+
+.note {
+  padding: 1rem;
+}
